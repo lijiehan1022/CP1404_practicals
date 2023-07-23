@@ -9,11 +9,20 @@ def main():
     print("Thank you for use, see you.")
 
 
+def get_valid_score():
+    score = int(input("Enter your score: "))
+    while 0 > score > 100:
+        print("Invalid score.")
+        score = int(input("Enter your score: "))
+    return score
+
+
 def get_choice():
+    score = get_valid_score()
     choice = input(">>> ").upper()
     while choice != 'Q':
         if choice == 'G':
-            score = random.randint(0, 100)
+            score = int(input("Enter your score: "))
             print(f"Score is {score}")
         elif choice == 'P':
             get_result(score)
